@@ -5,11 +5,11 @@
 class Pscan < Formula
   desc ""
   homepage "https://github.com/Nelwhix/pScan"
-  version "0.0.5"
+  version "0.0.6"
 
   on_macos do
-    url "https://github.com/Nelwhix/pScan/releases/download/v0.0.5/pScan_Darwin_all.tar.gz"
-    sha256 "7dba1bf098a47e7de974bf23094729b06cbb7894a6e995220edcedf85bf836c9"
+    url "https://github.com/Nelwhix/pScan/releases/download/v0.0.6/pScan_Darwin_all.tar.gz"
+    sha256 "d3aabfb3f7b007a664eb17989e9be1d0f5c0ddb23c1186a7f3e5e9e3d1f8aeb4"
 
     def install
       bin.install "pScan"
@@ -17,17 +17,17 @@ class Pscan < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Nelwhix/pScan/releases/download/v0.0.5/pScan_Linux_x86_64.tar.gz"
-      sha256 "7dff65ca9f50cda566f52fbe986705202d6bc73180cda5a13f5753c5b6b0587e"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Nelwhix/pScan/releases/download/v0.0.6/pScan_Linux_arm64.tar.gz"
+      sha256 "7d2d819eec0b91b91043d34235a01ec29d3c8f98c566dfb34f962cca50a87f8b"
 
       def install
         bin.install "pscan"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Nelwhix/pScan/releases/download/v0.0.5/pScan_Linux_arm64.tar.gz"
-      sha256 "42c3775a46aa42971752b24e7e62536a0bb9ef77f30ea100722d91e8ef8cf052"
+    if Hardware::CPU.intel?
+      url "https://github.com/Nelwhix/pScan/releases/download/v0.0.6/pScan_Linux_x86_64.tar.gz"
+      sha256 "b29489e927efd509dad230c1794f179a880541359d6d3c3aec4cac9685938cc4"
 
       def install
         bin.install "pscan"
